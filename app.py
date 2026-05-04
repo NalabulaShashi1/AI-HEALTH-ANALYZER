@@ -3,6 +3,7 @@ import numpy as np
 import pickle
 import os
 
+MODEL_PATH = "model.pkl"   # or your actual file name
 # ---------------- LOAD MODEL ----------------
 import subprocess
 
