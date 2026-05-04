@@ -4,12 +4,11 @@ import pickle
 import os
 
 # ---------------- LOAD MODEL ----------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model", "model.pkl")
+import subprocess
 
 if not os.path.exists(MODEL_PATH):
-    st.error("❌ Model not found. Run train_model.py first.")
-    st.stop()
+    st.warning("Model not found. Training model...")
+    subprocess.run(["python", "model/train_model.py"])
 
 model, feature_names = pickle.load(open(MODEL_PATH, "rb"))
 
